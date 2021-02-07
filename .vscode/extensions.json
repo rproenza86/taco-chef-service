@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "henriiik.vscode-sort",
+    "ionutvmi.path-autocomplete",
+    "juancasanova.awesometypescriptproblemmatcher",
+    "msjsdiag.debugger-for-chrome",
+    "secanis.jenkinsfile-support",
+    "wix.vscode-import-cost",
+    "ms-vsliveshare.vsliveshare-pack",
+    "coenraads.bracket-pair-colorizer",
+    "ryanluker.vscode-coverage-gutters",
+    "hbenl.vscode-mocha-test-adapter"
+  ]
+}

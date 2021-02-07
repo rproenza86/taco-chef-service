@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Current TS Tests File",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-r",
+                "ts-node/register",
+                "/Users/rproenza/Development/Ventera/Services/iqies-notification-service/src/process-message-notifications/utils/tests/getEmailRecipients.spec.ts"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+        },
+        {
+            "name": "Attach to createSauce",
+            "type": "node",
+            "request": "attach",
+            "address": "localhost",
+            "port": 5858,
+            "localRoot": "${workspaceRoot}/.aws-sam/build/createSouce",
+            "remoteRoot": "/var/task",
+            "protocol": "inspector",
+            "stopOnEntry": false,
+            "outFiles": [
+                "${workspaceRoot}/.aws-sam/build/createSouce/index.js"
+            ],
+            "sourceMaps": true
+        }
+    ]
+}

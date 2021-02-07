@@ -1,0 +1,14 @@
+POST https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes
+Content-Type: application/json
+
+{
+    "name": "TacoMax",
+    "description": "Best taco recipe",
+    "instructions": "slow cook",
+    "ingredients": {
+        "shell": "corn bread",
+        "proteins": "8g",
+        "toppings": "chili",
+        "sauce": "tomato"
+    }
+}
