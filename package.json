@@ -10,6 +10,8 @@
         "invoke:createTacos": "stackery local invoke -f createTacos -e dev --build --aws-profile rrp --input-file  src/createTacos/__mocks__/createEvent.json",
         "invoke:createTacos:only": "stackery local invoke -f createTacos -e dev --aws-profile rrp --stack-name taco-chef --input-file  src/createTacos/__mocks__/createEvent.json",
         "invoke:getTacos": "stackery local invoke -f getTacos -e dev --build --aws-profile rrp",
+        "invoke:deleteTacos": "stackery local invoke -f deleteTacos -e dev --build --aws-profile rrp --input-file src/deleteTacos/__mocks__/deleteEvent.json",
+        "invoke:deleteTacos:only": "stackery local invoke -f deleteTacos -e dev --aws-profile rrp --input-file src/deleteTacos/__mocks__/deleteEvent.json",
         "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp"
     },
     "prettier": {

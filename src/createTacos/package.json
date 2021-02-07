@@ -2,9 +2,7 @@
     "name": "createtacos",
     "version": "1.0.0",
     "scripts": {
-        "build": "tsc",
-        "invoke": "npm run build && npm run invoke:only",
-        "invoke:only": "stackery local invoke -e __mocks__/createEvent.json --aws-profile default"
+        "build": "tsc"
     },
     "devDependencies": {
         "aws-sdk": "~2",

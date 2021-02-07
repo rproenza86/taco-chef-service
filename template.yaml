@@ -31,12 +31,6 @@ Resources:
                 type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${updateTacos.Arn}/invocations
               responses: {}
-            delete:
-              x-amazon-apigateway-integration:
-                httpMethod: POST
-                type: aws_proxy
-                uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${deleteTacos.Arn}/invocations
-              responses: {}
           /tacos/sauces:
             get:
               x-amazon-apigateway-integration:
@@ -50,11 +44,15 @@ Resources:
                 type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${createSouces.Arn}/invocations
               responses: {}
+          /tacos/recipes/{recipeId}:
+            delete:
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: aws_proxy
+                uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${deleteTacos.Arn}/invocations
+              responses: {}
       EndpointConfiguration: REGIONAL
       TracingEnabled: true
-      Cors:
-        AllowHeaders: '''Authorization,Content-Type'''
-        AllowOrigin: '''*'''
   getTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -85,7 +83,6 @@ Resources:
           TABLE_ARN: !GetAtt tacosRecipes.Arn
       Layers:
         - !Ref Layer
-
   createTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -116,7 +113,6 @@ Resources:
           TABLE_ARN: !GetAtt tacosRecipes.Arn
       Layers:
         - !Ref Layer
-
   updateTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -145,7 +141,6 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
-
   deleteTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -163,18 +158,19 @@ Resources:
         - AWSXrayWriteOnlyAccess
         - DynamoDBCrudPolicy:
             TableName: !Ref tacosRecipes
-      Events:
-        ApiDELETEtacosrecipes:
-          Type: Api
-          Properties:
-            Path: /tacos/recipes
-            Method: DELETE
-            RestApiId: !Ref Api
       Environment:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
-
+      Layers:
+        - !Ref Layer
+      Events:
+        ApiDELETEtacosrecipesrecipeId:
+          Type: Api
+          Properties:
+            Path: /tacos/recipes/{recipeId}
+            Method: DELETE
+            RestApiId: !Ref Api
   getSouces:
     Type: AWS::Serverless::Function
     Properties:
@@ -197,7 +193,6 @@ Resources:
             Path: /tacos/sauces
             Method: GET
             RestApiId: !Ref Api
-
   createSouces:
     Type: AWS::Serverless::Function
     Properties:
@@ -226,7 +221,6 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosCard
           TABLE_ARN: !GetAtt tacosCard.Arn
-
   tacosRecipes:
     Type: AWS::DynamoDB::Table
     Properties:
