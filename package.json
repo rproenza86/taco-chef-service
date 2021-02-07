@@ -1,49 +1,50 @@
 {
-  "name": "taco-chef",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "NODE_ENV=development run watch",
-    "watch": "webpack-cli -w",
-    "build": "webpack-cli",
-    "test": "nyc --reporter=text-summary --reporter=lcov --reporter=cobertura --reporter=json mocha -r ts-node/register --tsconfig tsconfig_tests.json src/**/*.spec.ts --opts mocha.opts",
-    "test:open": "open ./coverage/lcov-report/index.html",
-    "invoke:createTacos": "stackery local invoke -f createTacos -e dev --build --aws-profile rrp --input-file  src/createTacos/__mocks__/createEvent.json",
-    "invoke:createTacos:only": "stackery local invoke -f createTacos -e dev --aws-profile rrp --stack-name taco-chef --input-file  src/createTacos/__mocks__/createEvent.json",
-    "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp"
-  },
-  "prettier": {
-    "trailingComma": "all",
-    "singleQuote": true
-  },
-  "dependencies": {
-    "axios": "^0.18.0",
-    "uid": "^2.0.0"
-  },
-  "devDependencies": {
-    "@types/bluebird": "^3.5.32",
-    "@types/aws-lambda": "8.10.46",
-    "@types/aws-sdk": "^2.7.0",
-    "@types/chai": "4.1.7",
-    "@types/mocha": "2.2.45",
-    "@types/nock": "11.1.0",
-    "@types/node": "^13.13.13",
-    "@types/pg": "^7.14.3",
-    "@types/sinon": "9.0.2",
-    "aws-sam-webpack-plugin": "0.6.0",
-    "chai": "4.2.0",
-    "fuzzy": "0.1.3",
-    "inquirer": "6.5.2",
-    "inquirer-autocomplete-prompt": "1.0.2",
-    "mocha": "6.1.4",
-    "nock": "12.0.3",
-    "nyc": "13.3.0",
-    "recursive-readdir-sync": "1.0.6",
-    "shelljs": "0.7.8",
-    "sinon": "9.0.2",
-    "ts-loader": "6.2.1",
-    "ts-node": "8.7.0",
-    "typescript": "3.8.3",
-    "webpack": "4.42.0",
-    "webpack-cli": "3.3.11"
-  }
+    "name": "taco-chef",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "NODE_ENV=development run watch",
+        "watch": "webpack-cli -w",
+        "build": "webpack-cli",
+        "test": "nyc --reporter=text-summary --reporter=lcov --reporter=cobertura --reporter=json mocha -r ts-node/register --tsconfig tsconfig_tests.json src/**/*.spec.ts --opts mocha.opts",
+        "test:open": "open ./coverage/lcov-report/index.html",
+        "invoke:createTacos": "stackery local invoke -f createTacos -e dev --build --aws-profile rrp --input-file  src/createTacos/__mocks__/createEvent.json",
+        "invoke:createTacos:only": "stackery local invoke -f createTacos -e dev --aws-profile rrp --stack-name taco-chef --input-file  src/createTacos/__mocks__/createEvent.json",
+        "invoke:getTacos": "stackery local invoke -f getTacos -e dev --build --aws-profile rrp",
+        "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp"
+    },
+    "prettier": {
+        "trailingComma": "all",
+        "singleQuote": true
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "uid": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/bluebird": "^3.5.32",
+        "@types/aws-lambda": "8.10.46",
+        "@types/aws-sdk": "^2.7.0",
+        "@types/chai": "4.1.7",
+        "@types/mocha": "2.2.45",
+        "@types/nock": "11.1.0",
+        "@types/node": "^13.13.13",
+        "@types/pg": "^7.14.3",
+        "@types/sinon": "9.0.2",
+        "aws-sam-webpack-plugin": "0.6.0",
+        "chai": "4.2.0",
+        "fuzzy": "0.1.3",
+        "inquirer": "6.5.2",
+        "inquirer-autocomplete-prompt": "1.0.2",
+        "mocha": "6.1.4",
+        "nock": "12.0.3",
+        "nyc": "13.3.0",
+        "recursive-readdir-sync": "1.0.6",
+        "shelljs": "0.7.8",
+        "sinon": "9.0.2",
+        "ts-loader": "6.2.1",
+        "ts-node": "8.7.0",
+        "typescript": "3.8.3",
+        "webpack": "4.42.0",
+        "webpack-cli": "3.3.11"
+    }
 }

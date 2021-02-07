@@ -1,7 +1,31 @@
-export const handler = async (event: any = {}): Promise<any> => {
-  // Log the event argument for debugging and for use in local development.
-  const response = JSON.stringify(event, undefined, 2);
-  console.log(response);
+// external dependencies
+import { DynamoDB } from 'aws-sdk';
 
-  return response;
-}
+// types
+import { IRecipe } from '../types';
+
+// utils
+import { buildResponse } from 'utils';
+
+export const handler = async (event: AWSLambda.APIGatewayEvent) => {
+    try {
+        const dynamodb = new DynamoDB.DocumentClient();
+        const tableName = process.env.TABLE_NAME;
+
+        const params = {
+            TableName: tableName,
+            ReturnConsumedCapacity: 'TOTAL',
+        };
+
+        const dbSavingResult = await dynamodb.scan(params).promise();
+        return buildResponse(200, {
+            recipes: dbSavingResult.Items,
+            count: dbSavingResult.Count,
+        });
+    } catch (error) {
+        return buildResponse(500, {
+            message: 'Recipes not found. Error performing DB ops.',
+            rawError: error,
+        });
+    }
+};
