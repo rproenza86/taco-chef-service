@@ -85,8 +85,7 @@ Resources:
           TABLE_ARN: !GetAtt tacosRecipes.Arn
       Layers:
         - !Ref Layer
-    Metadata:
-      RuntimeOption: typescript
+
   createTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -117,8 +116,7 @@ Resources:
           TABLE_ARN: !GetAtt tacosRecipes.Arn
       Layers:
         - !Ref Layer
-    Metadata:
-      RuntimeOption: typescript
+
   updateTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -147,8 +145,7 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
-    Metadata:
-      RuntimeOption: typescript
+
   deleteTacos:
     Type: AWS::Serverless::Function
     Properties:
@@ -177,8 +174,7 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
-    Metadata:
-      RuntimeOption: typescript
+
   getSouces:
     Type: AWS::Serverless::Function
     Properties:
@@ -201,8 +197,7 @@ Resources:
             Path: /tacos/sauces
             Method: GET
             RestApiId: !Ref Api
-    Metadata:
-      RuntimeOption: typescript
+
   createSouces:
     Type: AWS::Serverless::Function
     Properties:
@@ -231,8 +226,7 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosCard
           TABLE_ARN: !GetAtt tacosCard.Arn
-    Metadata:
-      RuntimeOption: typescript
+
   tacosRecipes:
     Type: AWS::DynamoDB::Table
     Properties:
