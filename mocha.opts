@@ -1,0 +1,5 @@
+--reporter spec
+--ui bdd
+--require ./mocha.env.js
+--require chai/register-should
+--exit

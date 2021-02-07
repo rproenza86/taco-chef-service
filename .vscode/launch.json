@@ -1,33 +1,95 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Debug Current TS Tests File",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-            "args": [
-                "-r",
-                "ts-node/register",
-                "/Users/rproenza/Development/Ventera/Services/iqies-notification-service/src/process-message-notifications/utils/tests/getEmailRecipients.spec.ts"
-            ],
-            "cwd": "${workspaceRoot}",
-            "protocol": "inspector",
-        },
-        {
-            "name": "Attach to createSauce",
-            "type": "node",
-            "request": "attach",
-            "address": "localhost",
-            "port": 5858,
-            "localRoot": "${workspaceRoot}/.aws-sam/build/createSouce",
-            "remoteRoot": "/var/task",
-            "protocol": "inspector",
-            "stopOnEntry": false,
-            "outFiles": [
-                "${workspaceRoot}/.aws-sam/build/createSouce/index.js"
-            ],
-            "sourceMaps": true
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "getTacos",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/getTacos",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/getTacos/app.js"
+      ],
+      "sourceMaps": true
+    },
+    {
+      "name": "createTacos",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/createTacos",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/createTacos/app.js"
+      ],
+      "sourceMaps": true
+    },
+    {
+      "name": "updateTacos",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/updateTacos",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/updateTacos/app.js"
+      ],
+      "sourceMaps": true
+    },
+    {
+      "name": "deleteTacos",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/deleteTacos",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/deleteTacos/app.js"
+      ],
+      "sourceMaps": true
+    },
+    {
+      "name": "getSouces",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/getSouces",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/getSouces/app.js"
+      ],
+      "sourceMaps": true
+    },
+    {
+      "name": "createSouces",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 5858,
+      "localRoot": "${workspaceRoot}/.aws-sam/build/createSouces",
+      "remoteRoot": "/var/task",
+      "protocol": "inspector",
+      "stopOnEntry": false,
+      "outFiles": [
+        "${workspaceRoot}/.aws-sam/build/createSouces/app.js"
+      ],
+      "sourceMaps": true
+    }
+  ]
 }

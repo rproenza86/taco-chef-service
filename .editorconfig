@@ -1,0 +1,9 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# use 4 spaces for indentation for all files
+[*]
+indent_style = space
+indent_size = 4

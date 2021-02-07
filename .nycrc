@@ -1,0 +1,35 @@
+{
+    "check-coverage": true,
+    "lines": 51,
+    "statements": 51,
+    "functions": 25,
+    "branches": 63,
+    "extension": [
+      ".js",
+      ".ts"
+    ],
+    "include": [
+        "src/**/!(*.test.*).[tj]s?(x)"
+    ],
+    "exclude": [
+        "**/src/**/__mocks__/**",
+        "**/src/**/__tests__/**",
+        "**/src/**/*types.ts",
+        "**/src/**/*logger.ts",
+        "**/src/**/*constants.ts"
+    ],
+    "reporter": [
+        "lcov",
+        "text",
+        "cobertura"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage",
+    "watermarks": {
+        "lines": [80, 95],
+        "functions": [80, 95],
+        "branches": [80, 95],
+        "statements": [80, 95]
+    }
+}

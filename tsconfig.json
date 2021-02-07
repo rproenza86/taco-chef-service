@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "allowJs": true,
+        "checkJs": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.js"],
+    "exclude": ["./src/**/tests/*", "node_modules"],
+    "types": ["node", "aws-sdk"]
+}

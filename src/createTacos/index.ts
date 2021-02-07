@@ -1,11 +1,13 @@
 // external dependencies
 import { DynamoDB } from 'aws-sdk';
-import { uid } from 'uid';
+import * as uuiApp from 'uid';
 
 // types
 import { IRecipe } from '../types';
 
-export const handler = async (event: AWSLambda.APIGatewayEvent): Promise<any> => {
+export const handler = async (
+    event: AWSLambda.APIGatewayEvent,
+): Promise<any> => {
     let recipe: IRecipe;
 
     try {
@@ -28,7 +30,7 @@ export const handler = async (event: AWSLambda.APIGatewayEvent): Promise<any> =>
         const tableName = process.env.TABLE_NAME;
 
         const newRecipe = {
-            id: uid(32),
+            id: uuiApp.uid(32),
             ...recipe,
         };
 
@@ -40,7 +42,7 @@ export const handler = async (event: AWSLambda.APIGatewayEvent): Promise<any> =>
         };
 
         const dbSavingResult = await dynamodb.put(params).promise();
-        console.log('Taco recipe created.', { dbSavingResult, recipe });
+        console.log('Taco recipe created successfully.', { dbSavingResult, recipe });
 
         return {
             statusCode: 201,
