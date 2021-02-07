@@ -25,12 +25,6 @@ Resources:
                 type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${createTacos.Arn}/invocations
               responses: {}
-            put:
-              x-amazon-apigateway-integration:
-                httpMethod: POST
-                type: aws_proxy
-                uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${updateTacos.Arn}/invocations
-              responses: {}
           /tacos/sauces:
             get:
               x-amazon-apigateway-integration:
@@ -50,6 +44,12 @@ Resources:
                 httpMethod: POST
                 type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${deleteTacos.Arn}/invocations
+              responses: {}
+            put:
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: aws_proxy
+                uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${updateTacos.Arn}/invocations
               responses: {}
       EndpointConfiguration: REGIONAL
       TracingEnabled: true
@@ -130,17 +130,19 @@ Resources:
         - AWSXrayWriteOnlyAccess
         - DynamoDBCrudPolicy:
             TableName: !Ref tacosRecipes
-      Events:
-        ApiPUTtacosrecipes:
-          Type: Api
-          Properties:
-            Path: /tacos/recipes
-            Method: PUT
-            RestApiId: !Ref Api
       Environment:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
+      Events:
+        ApiPUTtacosrecipesrecipeId:
+          Type: Api
+          Properties:
+            Path: /tacos/recipes/{recipeId}
+            Method: PUT
+            RestApiId: !Ref Api
+      Layers:
+        - !Ref Layer
   deleteTacos:
     Type: AWS::Serverless::Function
     Properties:

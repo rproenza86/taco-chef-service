@@ -1,0 +1,67 @@
+{
+    "resource": "/tacos/recipes",
+    "path": "/tacos/recipes",
+    "httpMethod": "PUT",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Content-Type": "application/json",
+        "Host": "t7un9j78xd.execute-api.us-west-2.amazonaws.com",
+        "Postman-Token": "47c18d15-2ed1-4639-8ff1-2c054dc76c8f",
+        "User-Agent": "PostmanRuntime/7.26.8",
+        "X-Amzn-Trace-Id": "Root=1-601f239d-1667e672797f07f75fbb5d0c",
+        "X-Forwarded-For": "73.54.218.6",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": ["*/*"],
+        "Accept-Encoding": ["gzip, deflate, br"],
+        "Content-Type": ["application/json"],
+        "Host": ["t7un9j78xd.execute-api.us-west-2.amazonaws.com"],
+        "Postman-Token": ["47c18d15-2ed1-4639-8ff1-2c054dc76c8f"],
+        "User-Agent": ["PostmanRuntime/7.26.8"],
+        "X-Amzn-Trace-Id": ["Root=1-601f239d-1667e672797f07f75fbb5d0c"],
+        "X-Forwarded-For": ["73.54.218.6"],
+        "X-Forwarded-Port": ["443"],
+        "X-Forwarded-Proto": ["https"]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "v983j8",
+        "resourcePath": "/tacos/recipes",
+        "httpMethod": "POST",
+        "extendedRequestId": "aWKAqF4yPHcFmLg=",
+        "requestTime": "06/Feb/2021:23:17:49 +0000",
+        "path": "/dev/tacos/recipes",
+        "accountId": "883394708467",
+        "protocol": "HTTP/1.1",
+        "stage": "dev",
+        "domainPrefix": "t7un9j78xd",
+        "requestTimeEpoch": 1612653469712,
+        "requestId": "58e1d8d3-15d4-45a5-bc55-ab2a384a0236",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "73.54.218.6",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "PostmanRuntime/7.26.8",
+            "user": null
+        },
+        "domainName": "t7un9j78xd.execute-api.us-west-2.amazonaws.com",
+        "apiId": "t7un9j78xd"
+    },
+    "body": "{\n    \"name\": \"TacoMax Update\",\n    \"description\": \"Best taco recipe\",\n    \"instructions\": \"slow cook\",\n    \"ingredients\": {\n        \"shell\": \"corn bread\",\n        \"proteins\": \"8g\",\n        \"toppings\": \"chili\",\n        \"sauce\": \"tomato\"\n    }\n}",
+    "isBase64Encoded": false,
+    "pathParameters": {
+        "recipeId": "481d33768b250fada990c6959c5c3e9b"
+    }
+}

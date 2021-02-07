@@ -1,7 +1,53 @@
-export const handler = async (event: any = {}): Promise<any> => {
-  // Log the event argument for debugging and for use in local development.
-  const response = JSON.stringify(event, undefined, 2);
-  console.log(response);
+// external dependencies
+import { DynamoDB } from 'aws-sdk';
 
-  return response;
-}
+// utils
+import { buildResponse } from 'utils';
+
+const dynamodb = new DynamoDB.DocumentClient();
+
+export const handler = async (event: AWSLambda.APIGatewayEvent) => {
+    let updates;
+    const recipeId: string = event.pathParameters.recipeId;
+
+    if (!recipeId) {
+        return buildResponse(400, {
+            message: 'Bad Request.Missed recipeId.',
+        });
+    }
+
+    try {
+        updates = JSON.parse(event.body);
+    } catch (error) {
+        return buildResponse(400, {
+            message: 'Recipe not updated. Bad Request.',
+            rawError: error,
+        });
+    }
+
+    try {
+        const tableName = process.env.TABLE_NAME;
+        const recipeUpdate = {
+            ...updates,
+            id: recipeId,
+        };
+
+        const params = {
+            TableName: tableName,
+            Item: recipeUpdate
+        };
+
+        const dbSavingResult = await dynamodb.put(params).promise();
+        console.log('Taco recipe updated successfully.', {
+            dbSavingResult,
+            updates,
+        });
+
+        return buildResponse(201, { message: 'Taco Recipe updated.' });
+    } catch (error) {
+        return buildResponse(500, {
+            message: 'Recipe not updated. Error performing update.',
+            rawError: error,
+        });
+    }
+};

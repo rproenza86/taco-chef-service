@@ -1,13 +1,15 @@
 {
-  "name": "updatetacos",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "tsc"
-  },
-  "devDependencies": {
-    "aws-sdk": "~2",
-    "@types/aws-sdk": "^2.7.0",
-    "@types/node": "^12.6.8",
-    "typescript": "^3.5.3"
-  }
+    "name": "updatetacos",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "aws-sdk": "~2",
+        "@aws-sdk/util-dynamodb": "^3.4.1",
+        "@types/aws-sdk": "^2.7.0",
+        "@types/node": "^12.6.8",
+        "typescript": "^3.5.3",
+        "utils": "file:../layers/nodejs/node_modules/utils"
+    }
 }
