@@ -5,6 +5,9 @@ import * as uuiApp from 'uid';
 // types
 import { IRecipe } from '../types';
 
+// utils
+import { buildResponse } from '../utils/responseFactory';
+
 export const handler = async (
     event: AWSLambda.APIGatewayEvent,
 ): Promise<any> => {
@@ -13,16 +16,10 @@ export const handler = async (
     try {
         recipe = JSON.parse(event.body);
     } catch (error) {
-        return {
-            statusCode: 400,
-            body: JSON.stringify({
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                message: 'Recipe not created. Bad Request.',
-                rawError: error,
-            }),
-        };
+        return buildResponse(400, {
+            message: 'Recipe not created. Bad Request.',
+            rawError: error,
+        });
     }
 
     try {
@@ -42,25 +39,16 @@ export const handler = async (
         };
 
         const dbSavingResult = await dynamodb.put(params).promise();
-        console.log('Taco recipe created successfully.', { dbSavingResult, recipe });
+        console.log('Taco recipe created successfully.', {
+            dbSavingResult,
+            recipe,
+        });
 
-        return {
-            statusCode: 201,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: 'Taco Recipe created.' }),
-        };
+        return buildResponse(201, { message: 'Taco Recipe created.' });
     } catch (error) {
-        return {
-            statusCode: 500,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                message: 'Recipe not created. Error performing DB ops.',
-                rawError: error,
-            }),
-        };
+        return buildResponse(500, {
+            message: 'Recipe not created. Error performing DB ops.',
+            rawError: error,
+        });
     }
 };

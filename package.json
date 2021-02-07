@@ -9,8 +9,7 @@
     "test:open": "open ./coverage/lcov-report/index.html",
     "invoke:createTacos": "stackery local invoke -f createTacos -e dev --build --aws-profile rrp --input-file  src/createTacos/__mocks__/createEvent.json",
     "invoke:createTacos:only": "stackery local invoke -f createTacos -e dev --aws-profile rrp --stack-name taco-chef --input-file  src/createTacos/__mocks__/createEvent.json",
-    "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp",
-    "lala": "sam package --region us-west-2 --s3-bucket stackery-assetsbucket-1ry92atjolviv --s3-prefix deployments/dev/taco-chef/functions --kms-key-id alias/aws/s3 --output-template-file .aws-sam/build/packaged-template.yaml --profile rrp"
+    "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp"
   },
   "prettier": {
     "trailingComma": "all",

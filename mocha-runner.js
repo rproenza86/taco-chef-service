@@ -24,7 +24,7 @@ args.forEach(function (testDir) {
         if (err.errno === 34) {
             console.log('Path does not exist');
         } else {
-            // something unrelated went wrong, rethrow 
+            // something unrelated went wrong, rethrow
             throw err;
         }
     }
@@ -32,7 +32,7 @@ args.forEach(function (testDir) {
 
 files.filter(function (file) {
     // Only keep the .js files
-    return file.endsWith('.test.js');
+    return file.endsWith('.spec.ts');
 }).forEach(function(file){
     mocha.addFile(file);
 });

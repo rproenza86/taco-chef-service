@@ -54,7 +54,7 @@ describe('CreateTaco lambda', function () {
 
     it('should gracefully handle payload errors - return 400', async () => {
         const expected =
-            '{"headers":{"Content-Type":"application/json"},"message":"Recipe not created. Bad Request.","rawError":{}}';
+            '{"message":"Recipe not created. Bad Request.","rawError":{}}';
         const event = { ...createEvent };
         event.body = 'invalid json';
 

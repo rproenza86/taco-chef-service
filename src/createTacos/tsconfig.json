@@ -1,15 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs"
-  },
-  "exclude": [
-    "node_modules",
-    "__mocks__",
-    "__tests__"
-  ],
-  "types": [
-    "node",
-    "aws-sdk"
-  ]
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs"
+    },
+    "exclude": [
+        "node_modules",
+        "__mocks__",
+        "__tests__",
+        "*.js",
+        "src/**/*.js"
+    ],
+    "types": ["node", "aws-sdk"]
 }
