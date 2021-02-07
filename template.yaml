@@ -113,6 +113,8 @@ Resources:
         Variables:
           TABLE_NAME: !Ref tacosRecipes
           TABLE_ARN: !GetAtt tacosRecipes.Arn
+      Layers:
+        - !Ref Layer
     Metadata:
       RuntimeOption: typescript
   updateTacos:
@@ -253,6 +255,14 @@ Resources:
           KeyType: HASH
       StreamSpecification:
         StreamViewType: NEW_AND_OLD_IMAGES
+  Layer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      Description: !Sub
+        - Stack ${StackTagName} Environment ${EnvironmentTagName} Layer ${ResourceName}
+        - ResourceName: Layer
+      ContentUri: src/layers
+      RetentionPolicy: Retain
 Parameters:
   StackTagName:
     Type: String

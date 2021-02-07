@@ -6,7 +6,7 @@ import * as uuiApp from 'uid';
 import { IRecipe } from '../types';
 
 // utils
-import { buildResponse } from '../utils/responseFactory';
+import { buildResponse } from 'utils';
 
 export const handler = async (
     event: AWSLambda.APIGatewayEvent,

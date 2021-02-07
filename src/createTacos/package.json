@@ -11,7 +11,8 @@
         "@types/aws-sdk": "^2.7.0",
         "@types/aws-lambda": "^8.10.46",
         "@types/node": "^12.6.8",
-        "typescript": "^3.5.3"
+        "typescript": "^3.5.3",
+        "utils": "file:../layers/nodejs/node_modules/utils"
     },
     "dependencies": {
         "uid": "^2.0.0"
