@@ -286,10 +286,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://xcnfriw4s8.execute-api.us-west-2.amazonaws.com/dev/recipes/visualizeRecipe?apiKey=3c96dbdcf8a645fd830ad715ffc77da2",
+					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/sauces",
 					"protocol": "https",
 					"host": [
-						"xcnfriw4s8",
+						"t7un9j78xd",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -297,13 +297,14 @@
 					],
 					"path": [
 						"dev",
-						"recipes",
-						"visualizeRecipe"
+						"tacos",
+						"sauces"
 					],
 					"query": [
 						{
 							"key": "apiKey",
-							"value": "3c96dbdcf8a645fd830ad715ffc77da2"
+							"value": "3c96dbdcf8a645fd830ad715ffc77da2",
+							"disabled": true
 						}
 					]
 				}
