@@ -1,47 +1,38 @@
-// external dependencies
-import { DynamoDB } from 'aws-sdk';
+// externals
+import axios from 'axios';
+import multipart from 'aws-lambda-multipart-parser';
 
-// types
-import { IRecipe } from '../types';
+// utils
+import { buildResponse } from 'utils';
 
-export const handler = async (event: AWSLambda.APIGatewayEvent): Promise<any> => {
-    let recipe: IRecipe;
+const FormData = require('form-data');
 
+export const handler = async (
+    event: AWSLambda.APIGatewayEvent,
+): Promise<any> => {
     try {
-        recipe = JSON.parse(event.body);
-    } catch (error) {
-        return {
-            statusCode: 400,
-            body: JSON.stringify({
-                message: 'Recipe not created. Bad Request.',
-                rawError: error,
-            }),
-        };
-    }
+        const payload = multipart(event, true);
 
-    try {
-        const dynamodb = new DynamoDB.DocumentClient();
-        const tableName = process.env.TABLE_NAME;
+        const form = new FormData();
+        form.append('title', payload.title);
+        form.append('image', payload.image);
+        form.append('author', payload.author);
+        form.append('ingredients', payload.ingredients);
 
-        const params = {
-            TableName: tableName,
-            Item: recipe,
-            ConditionExpression: 'attribute_not_exists(name)',
-            ReturnConsumedCapacity: 'TOTAL',
-        };
+        const sauceRecipePath = '/recipes/visualizeRecipe';
+        const endpoint = `https://api.spoonacular.com${sauceRecipePath}?apiKey=3c96dbdcf8a645fd830ad715ffc77da2`;
+        const options = { body: event.body };
 
-        const dbSavingResult = await dynamodb.put(params).promise();
-        console.log('Taco recipe created.', { dbSavingResult, recipe });
+        const sauces = await axios.post(endpoint, form, {
+            headers: { 'Content-Type': 'multipart/form-data' },
+        });
 
-        return {
-            statusCode: 201,
-            body: JSON.stringify({ message: 'Taco Recipe created.' }),
-        };
+        return buildResponse(sauces.status, sauces.data);
     } catch (error) {
         return {
             statusCode: 500,
             body: JSON.stringify({
-                message: 'Recipe not created. Error performing DB ops.',
+                message: 'Recipe not created. Error performing creation ops.',
                 rawError: error,
             }),
         };

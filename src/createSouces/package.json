@@ -1,4 +1,19 @@
 {
-    "name": "my-awesome-package",
-    "version": "1.0.0"
+    "name": "create-sauce",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "aws-sdk": "~2",
+        "@types/aws-sdk": "^2.7.0",
+        "@types/node": "^12.6.8",
+        "typescript": "^3.5.3",
+        "utils": "file:../layers/nodejs/node_modules/utils"
+    },
+    "dependencies": {
+        "aws-lambda-multipart-parser": "^0.1.3",
+        "axios": "^0.21.1",
+        "form-data": "^3.0.0"
+    }
 }
