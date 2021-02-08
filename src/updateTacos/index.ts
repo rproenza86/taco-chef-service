@@ -12,16 +12,17 @@ export const handler = async (event: AWSLambda.APIGatewayEvent) => {
 
     if (!recipeId) {
         return buildResponse(400, {
-            message: 'Bad Request.Missed recipeId.',
+            message: 'Bad Request.Missed recipeId.'
         });
     }
 
     try {
         updates = JSON.parse(event.body);
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(400, {
-            message: 'Recipe not updated. Bad Request.',
-            rawError: error,
+            message: 'Recipe not updated. Bad Request.'
         });
     }
 
@@ -29,7 +30,7 @@ export const handler = async (event: AWSLambda.APIGatewayEvent) => {
         const tableName = process.env.TABLE_NAME;
         const recipeUpdate = {
             ...updates,
-            id: recipeId,
+            id: recipeId
         };
 
         const params = {
@@ -40,14 +41,15 @@ export const handler = async (event: AWSLambda.APIGatewayEvent) => {
         const dbSavingResult = await dynamodb.put(params).promise();
         console.log('Taco recipe updated successfully.', {
             dbSavingResult,
-            updates,
+            updates
         });
 
         return buildResponse(201, { message: 'Taco Recipe updated.' });
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(500, {
-            message: 'Recipe not updated. Error performing update.',
-            rawError: error,
+            message: 'Recipe not updated. Error performing update.'
         });
     }
 };

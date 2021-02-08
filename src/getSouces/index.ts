@@ -15,9 +15,10 @@ export const handler = async () => {
 
         return buildResponse(200, sauces);
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(500, {
-            message: 'Recipes not found. Error fetching sauces recipes.',
-            rawError: error,
+            message: 'Recipes not found. Error fetching sauces recipes.'
         });
     }
 };

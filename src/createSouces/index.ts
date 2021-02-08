@@ -8,7 +8,7 @@ import { buildResponse } from 'utils';
 const FormData = require('form-data');
 
 export const handler = async (
-    event: AWSLambda.APIGatewayEvent,
+    event: AWSLambda.APIGatewayEvent
 ): Promise<any> => {
     try {
         const payload = multipart(event, true);
@@ -24,17 +24,18 @@ export const handler = async (
         const options = { body: event.body };
 
         const sauces = await axios.post(endpoint, form, {
-            headers: { 'Content-Type': 'multipart/form-data' },
+            headers: { 'Content-Type': 'multipart/form-data' }
         });
 
         return buildResponse(sauces.status, sauces.data);
     } catch (error) {
+        console.log('Error details: ', error);
+
         return {
             statusCode: 500,
             body: JSON.stringify({
-                message: 'Recipe not created. Error performing creation ops.',
-                rawError: error,
-            }),
+                message: 'Recipe not created. Error performing creation ops.'
+            })
         };
     }
 };

@@ -1,0 +1,1 @@
+DELETE https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/481d33768b250fada990c6959c5c3e9b

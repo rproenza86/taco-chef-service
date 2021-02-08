@@ -9,16 +9,17 @@ import { IRecipe } from '../types';
 import { buildResponse } from 'utils';
 
 export const handler = async (
-    event: AWSLambda.APIGatewayEvent,
+    event: AWSLambda.APIGatewayEvent
 ): Promise<any> => {
     let recipe: IRecipe;
 
     try {
         recipe = JSON.parse(event.body);
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(400, {
-            message: 'Recipe not created. Bad Request.',
-            rawError: error,
+            message: 'Recipe not created. Bad Request.'
         });
     }
 
@@ -28,27 +29,28 @@ export const handler = async (
 
         const newRecipe = {
             id: uuiApp.uid(32),
-            ...recipe,
+            ...recipe
         };
 
         const params = {
             TableName: tableName,
             Item: newRecipe,
             ConditionExpression: 'attribute_not_exists(id)',
-            ReturnConsumedCapacity: 'TOTAL',
+            ReturnConsumedCapacity: 'TOTAL'
         };
 
         const dbSavingResult = await dynamodb.put(params).promise();
         console.log('Taco recipe created successfully.', {
             dbSavingResult,
-            recipe,
+            recipe
         });
 
         return buildResponse(201, { message: 'Taco Recipe created.' });
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(500, {
-            message: 'Recipe not created. Error performing DB ops.',
-            rawError: error,
+            message: 'Recipe not created. Error performing DB ops.'
         });
     }
 };

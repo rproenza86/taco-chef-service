@@ -12,7 +12,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/getTacos/app.js"
+        "${workspaceRoot}/.aws-sam/build/createTacos/index.js"
       ],
       "sourceMaps": true
     },
@@ -27,7 +27,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/createTacos/app.js"
+        "${workspaceRoot}/.aws-sam/build/createTacos/index.js"
       ],
       "sourceMaps": true
     },
@@ -42,7 +42,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/updateTacos/app.js"
+        "${workspaceRoot}/.aws-sam/build/updateTacos/index.js"
       ],
       "sourceMaps": true
     },
@@ -57,7 +57,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/deleteTacos/app.js"
+        "${workspaceRoot}/.aws-sam/build/deleteTacos/index.js"
       ],
       "sourceMaps": true
     },
@@ -72,7 +72,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/getSouces/app.js"
+        "${workspaceRoot}/.aws-sam/build/getSouces/index.js"
       ],
       "sourceMaps": true
     },
@@ -87,7 +87,7 @@
       "protocol": "inspector",
       "stopOnEntry": false,
       "outFiles": [
-        "${workspaceRoot}/.aws-sam/build/createSouces/app.js"
+        "${workspaceRoot}/.aws-sam/build/createSouces/index.js"
       ],
       "sourceMaps": true
     }

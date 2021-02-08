@@ -15,7 +15,7 @@ const sandbox = sinon.createSandbox();
 const returnValueMock = {
     promise() {
         return {};
-    },
+    }
 } as unknown;
 
 describe('CreateTaco lambda', function () {
@@ -40,8 +40,8 @@ describe('CreateTaco lambda', function () {
                 shell: 'corn bread',
                 proteins: '8g',
                 toppings: 'chili',
-                sauce: 'tomato',
-            },
+                sauce: 'tomato'
+            }
         };
 
         const response = await createTaco(createEvent as any);
@@ -53,8 +53,7 @@ describe('CreateTaco lambda', function () {
     });
 
     it('should gracefully handle payload errors - return 400', async () => {
-        const expected =
-            '{"message":"Recipe not created. Bad Request.","rawError":{}}';
+        const expected = '{"message":"Recipe not created. Bad Request."}';
         const event = { ...createEvent };
         event.body = 'invalid json';
 
@@ -67,7 +66,7 @@ describe('CreateTaco lambda', function () {
     it('should handle db ops errors gracefully - return 500', async () => {
         putStub.throws();
         const expected =
-            '{"message":"Recipe not created. Error performing DB ops.","rawError":{}}';
+            '{"message":"Recipe not created. Error performing DB ops."}';
 
         const response = await createTaco(createEvent as any);
 

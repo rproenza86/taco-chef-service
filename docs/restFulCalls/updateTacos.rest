@@ -1,0 +1,14 @@
+PUT https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/e1d606ab35b3a14331a91d5e993374b8
+Content-Type: application/json
+
+{
+    "name": "TacoMax - updated now",
+    "description": "Best taco recipe today",
+    "instructions": "slow cook",
+    "ingredients": {
+        "shell": "corn bread",
+        "proteins": "8g",
+        "toppings": "chili",
+        "sauce": "tomato"
+    }
+}

@@ -11,7 +11,7 @@
                 "ts-node/register",
                 "--tsconfig",
                 "tsconfig_tests.json",
-                "/Users/rproenza/Development/Ventera/iqies-notification-service/src/common/deadLetters/tests/deadLetterProcessor.spec.ts"
+                "/Users/rproenza/Development/Git/aws-sam/taco-chef/src/createTacos/__tests__/sesBounces.spec.ts"
             ],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector"

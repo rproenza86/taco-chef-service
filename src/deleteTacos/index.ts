@@ -5,13 +5,13 @@ import { DynamoDB } from 'aws-sdk';
 import { buildResponse } from 'utils';
 
 export const handler = async (
-    event: AWSLambda.APIGatewayEvent,
+    event: AWSLambda.APIGatewayEvent
 ): Promise<any> => {
     const recipeId: string = event.pathParameters.recipeId;
 
     if (!recipeId) {
         return buildResponse(400, {
-            message: 'Bad Request.Missed recipeId.',
+            message: 'Bad Request.Missed recipeId.'
         });
     }
 
@@ -22,21 +22,22 @@ export const handler = async (
         const params = {
             TableName: tableName,
             Key: {
-                id: recipeId,
-            },
+                id: recipeId
+            }
         };
 
         const deleteResult = await dynamodb.delete(params).promise();
         console.log('Taco recipe deleted successfully.', {
             deleteResult,
-            recipeId,
+            recipeId
         });
 
         return buildResponse(200, { message: 'Taco Recipe deleted.' });
     } catch (error) {
+        console.log('Error details: ', error);
+
         return buildResponse(500, {
-            message: 'Recipe not deleted. Error performing DB ops.',
-            rawError: error,
+            message: 'Recipe not deleted. Error performing DB ops.'
         });
     }
 };

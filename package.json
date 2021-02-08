@@ -4,7 +4,7 @@
     "scripts": {
         "start": "NODE_ENV=development run watch",
         "watch": "webpack-cli -w",
-        "build": "webpack-cli",
+        "build:all": "webpack-cli",
         "test": "nyc --reporter=text-summary --reporter=lcov --reporter=cobertura --reporter=json mocha -r ts-node/register --tsconfig tsconfig_tests.json src/**/*.spec.ts --opts mocha.opts",
         "test:open": "open ./coverage/lcov-report/index.html",
         "invoke:createTacos": "stackery local invoke -f createTacos -e dev --build --aws-profile rrp --input-file  src/createTacos/__mocks__/createEvent.json",
@@ -19,7 +19,7 @@
         "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp"
     },
     "prettier": {
-        "trailingComma": "all",
+        "trailingComma": "none",
         "singleQuote": true
     },
     "dependencies": {

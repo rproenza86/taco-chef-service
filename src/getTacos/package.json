@@ -1,5 +1,5 @@
 {
-    "name": "gettacos",
+    "name": "get-tacos",
     "version": "1.0.0",
     "scripts": {
         "build": "tsc"
