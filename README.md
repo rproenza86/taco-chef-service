@@ -55,7 +55,10 @@ The stack is an orchestration of :
 
 ## How to Test
 
-Use the `.rest` files placed on the `docs/restFulCalls/` directory to perform the API operations.
+To perform the API operations you could use:
+
+1. The `.rest` files placed on the [`docs/restFulCalls/`](https://github.com/rproenza86/taco-chef-service/tree/master/docs/restFulCalls) directory.
+2. Postman collection shared on the  [`docs/postman/`](https://github.com/rproenza86/taco-chef-service/tree/master/docs/postman/) directory.
 
 > For more details check the below demo
 
