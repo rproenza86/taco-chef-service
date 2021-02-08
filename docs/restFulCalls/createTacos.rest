@@ -2,7 +2,7 @@ POST https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes
 Content-Type: application/json
 
 {
-    "name": "TacoMax",
+    "name": "TacoMax 10",
     "description": "Best taco recipe",
     "instructions": "slow cook",
     "ingredients": {
