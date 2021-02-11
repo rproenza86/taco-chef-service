@@ -12,10 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/sauces",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/sauces",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -118,10 +118,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -286,10 +286,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/sauces",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/sauces",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -523,10 +523,10 @@
 					}
 				},
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/481d33768b250fada990c6959c5c3e9b",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/481d33768b250fada990c6959c5c3e9b",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -617,10 +617,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -700,10 +700,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://t7un9j78xd.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/281980235b77b92d75d30bc040079b4d",
+					"raw": "https://rjtqxlhapj.execute-api.us-west-2.amazonaws.com/dev/tacos/recipes/c32c5fb7a7b59dae44641a73d5f259c5",
 					"protocol": "https",
 					"host": [
-						"t7un9j78xd",
+						"rjtqxlhapj",
 						"execute-api",
 						"us-west-2",
 						"amazonaws",
@@ -713,7 +713,7 @@
 						"dev",
 						"tacos",
 						"recipes",
-						"281980235b77b92d75d30bc040079b4d"
+						"c32c5fb7a7b59dae44641a73d5f259c5"
 					]
 				}
 			},
