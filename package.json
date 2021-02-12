@@ -16,7 +16,7 @@
         "invoke:updateTacos:only": "stackery local invoke -f updateTacos -e dev --aws-profile rrp --input-file src/updateTacos/__mocks__/updateEvent.json",
         "invoke:getSauces": "stackery local invoke -f getSouces -e dev --build --aws-profile rrp",
         "invoke:getSauces:only": "stackery local invoke -f getSouces -e dev --aws-profile rrp",
-        "deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp",
+        "dev:deploy": "stackery deploy --stack-name taco-chef -e dev --aws-profile rrp",
         "clean": "rm -rf dist/ && rm -rf .aws-sam/",
         "prepackage": "npm run clean && npm run build:all && mkdir .aws-sam/build/src && cp -R src/layers/ .aws-sam/build/src/layers",
         "prod:package": "sam package --region us-west-2 --s3-bucket stackery-assetsbucket-1ry92atjolviv --s3-prefix deployments/dev/taco-chef/functions --kms-key-id alias/aws/s3 --output-template-file .aws-sam/build/packaged-template.yaml --profile rrp",

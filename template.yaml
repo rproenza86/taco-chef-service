@@ -51,6 +51,8 @@ Resources:
                 type: aws_proxy
                 uri: !Sub arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${updateTacos.Arn}/invocations
               responses: {}
+      BinaryMediaTypes:
+        - multipart/form-data
       EndpointConfiguration: REGIONAL
       TracingEnabled: true
   getTacos:

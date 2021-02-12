@@ -64,4 +64,6 @@ To perform the API operations you could use:
 
 ### Tests Demo
 
+> **Important:** On new deployments, if the POST endpoint for the FormData's payload return "...db ops error", you maybe are missing an AWS API Gateway configuration: Go to your API -> Settings -> Binary Media Types and add the `multipart/form-data` binary time, re-deploy and test.
+
 ![demo](docs/images/demo.gif)
